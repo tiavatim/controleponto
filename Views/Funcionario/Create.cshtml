@@ -6,6 +6,23 @@
 
 }
 
+
+
+@*<script>
+        $(document).ready(function () {
+            var $seuCampoCpf = $("#CPF");
+        });
+    </script>*@
+
+
+@*<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
+    <script>
+        $(document).ready(function () {
+            var $seuCampoCpf = $("#CPF");
+            $seuCampoCpf.mask('000.000.000-00', { reverse: true });
+        });
+    </script>*@
+
 <h1>Create</h1>
 
 <h4>Funcionario</h4>
@@ -22,28 +39,34 @@
 
 
             @*<div class="form-group">
-                    <label asp-for="CPF" class="control-label"></label>
-                    <input asp-for="CPF" class="form-control" />
-                    <span asp-validation-for="CPF" class="text-danger"></span>
-                </div>*@
+            <label asp-for="CPF" class="control-label"></label>
+            <input asp-for="CPF" class="form-control" />
+            <span asp-validation-for="CPF" class="text-danger"></span>
+        </div>*@
 
 
+
+            @*<input type="text" id="CPF" />*@
+
+
+            @*<input type="text" id="cpf" /><br />*@
 
 
 
             <div class="form-group">
                 <div class="form-group form-group-default required">
                     <label>CPF</label>
-                    <input id="txtCPF" asp-for="CPF" class="form-control" style="height: 39px" />
+                    <input id="CPF" asp-for="CPF" class="form-control" style="height: 39px" />
                 </div>
             </div>
 
 
+
             @*<div class="form-group">
-                    @Html.LabelFor(model => model.CPF, htmlAttributes: new { @class = "control-label" })
-                    @Html.EditorFor(model => model.CPF, new { htmlAttributes = new { @class = "form-control", placeholder = "000.000.000-00", data_tipo = "CPF" } })
-                    @Html.ValidationMessageFor(model => model.CPF, "", new { @class = "text-danger" })
-                </div>*@
+            @Html.LabelFor(model => model.CPF, htmlAttributes: new { @class = "control-label" })
+            @Html.EditorFor(model => model.CPF, new { htmlAttributes = new { @class = "form-control", placeholder = "000.000.000-00", data_tipo = "CPF" } })
+            @Html.ValidationMessageFor(model => model.CPF, "", new { @class = "text-danger" })
+        </div>*@
 
 
 
@@ -56,18 +79,18 @@
 
 
             @*<div class="form-group">
-                    <label asp-for="Telefone" class="control-label"></label>
-                    <input asp-for="Telefone" class="form-control" />
-                    <span asp-validation-for="Telefone" class="text-danger"></span>
-                </div>*@
+            <label asp-for="Telefone" class="control-label"></label>
+            <input asp-for="Telefone" class="form-control" />
+            <span asp-validation-for="Telefone" class="text-danger"></span>
+        </div>*@
 
 
             <div class="form-group">
                 <div class="form-group form-group-default required">
                     <label>Telefone</label>
-                    
+
                     <input type="text" id="Telefone" asp-for="Telefone" class="form-control" style="height: 39px" />
-                 </div>
+                </div>
             </div>
 
 
@@ -137,33 +160,36 @@
                 <input asp-for="Complemento" class="form-control" />
                 <span asp-validation-for="Complemento" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Cargo" class="control-label"></label>
-                <input asp-for="Cargo" class="form-control" />
-                <span asp-validation-for="Cargo" class="text-danger"></span>
+
+
+
+
+
+
+
+
+
+           
+            
+            
+           
+            
+            
+
+
+
+            <div class="form-group ">
+                <label for="tipoos" class="col-md-1 control-label">Cargos</label>
+               
+
+                <select class="form-control" id="Cargo" data-placeholder="Selecione o cargo">
+                    <option value="0"></option>
+                    <option value="1">Programador</option>
+                    <option value="1">Analista I</option>
+                    <option value="2">Analista II</option>
+                </select>
+
             </div>
-
-
-            <div class="dropdown">
-
-                <div class="form-group">
-                    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
-                        Departamento
-                        <span class="caret"></span>
-                    </button>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Programação</a></li>
-                        <li><a href="#">Diretoria</a></li>
-                        <li><a href="#">Administração</a></li>
-
-                    </ul>
-                </div>
-            </div>
-
-
-
-
-
 
 
 
@@ -214,32 +240,6 @@
 </div>
 
 
-@*<script>
-        $(document).ready(function () {
-            var $CPF = $("#CPF");
-            $CPF.mask('000.000.000-00', { reverse: true });
-        });
-    </script>*@
-
-
-
-@*script>
-    $(function () {
-        $("input[data-tipo=''CPF'']").mask("000.000.000-00");
-        $("input[data-tipo=''data'']").mask("00/00/0000");
-        $("input[data-tipo=''moeda'']").mask("000.000.000,00", { reverse: true });
-    });*@
-
-
-
-
-
-
-@*});
-    </script>*@
-
-
-
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
@@ -251,31 +251,7 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
 
 
-
-@*<script src="~/lib/jquery-mask-plugin/src/jquery.mask.js" type="text/javascript" asp-append-version="true"></script>*@
-
-@*<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>*@
-
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-
-<!--<input type="text" id="campoData">
-<input type="text" id="Telefone">
-<input type="text" id="campoSenha">
-
-
-<script>
-
-    jQuery(function ($) {
-        $("#campoData").mask("99/99/9999");
-        $("#Telefone").mask("(999) 999-9999");
-        $("#campoSenha").mask("***-****");
-    });-->
-@*</script>*@
-
-
-@*</script>*@
 
 
 
@@ -286,23 +262,9 @@
             initEvents();
 
 
-            //$("#Telefone").mask("(99) 9999-9999?9").on("focusout", function () {
-            //    var len = this.value.replace(/\D/g, '').length;
-            //    $(this).mask(len > 10 ? "(99) 99999-999?9" : "(99) 9999-9999?9");
-            //});
 
 
-
-            //var SPMaskBehavior = function (val) {
-            //    return val.replace(/\D/g, '').length === 11 ? '(00) 00000-0000' : '(00) 0000-00009';
-            //},
-            //    spOptions = {
-            //        onKeyPress: function (val, e, field, options) {
-            //            field.mask(SPMaskBehavior.apply({}, arguments), options);
-            //        }
-            //    };
-
-            //$('#Telefone').mask(SPMaskBehavior, spOptions);
+           
 
 
             $("#Telefone").mask("(99)99999-9999");
@@ -316,21 +278,31 @@
     });
 
     function initEvents() {
+        $(".btn").on("click", function () {
+            alert("clicou")
+
+            var horaInicio = parseInt($('#HoraInicio').val());
+            alert("hora inicial = " +horaInicio )
+            var horaFim = parseInt($('#HoraFim').val());
+            alert("horaFim = " + horaFim  )
+            var tempoDescanso = parseInt($('#TempodeDescanso').val());
+            alert("tempoDescanso = " + tempoDescanso);
+                   
+            var cargaHoraria = horaFim - horaInicio - tempoDescanso;
+            alert("cargaHoraria " + cargaHoraria);
+
+            $('#CargaHoraria').val(cargaHoraria);
 
 
+            if (parseInt(cargaHoraria) > 10) {
+                alert("Passou de 10")
+            }
 
+                       
+        });
 
-
-
-
-
-
-
-
-
-
-
-    $("#btnCEP").on("click", function () {
+       
+        $("#btnCEP").on("click", function () {
 
         var cepcampo = $("#CEP").val();
 
@@ -356,6 +328,53 @@
 
             }
 </script>
+
+
+
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
+<script>
+    $(document).ready(function () {
+        var $seuCampoCpf = $("#CPF");
+        $seuCampoCpf.mask('000.000.000-00', { reverse: true });
+        $("#data").inputmask('99/99/9999');
+        $("#cpf").inputmask('999.999.999-99');
+        $("#cnpj").inputmask('99.999.999/9999-99');
+
+
+    });
+</script>
+
+
+
+<script src="~/js/jquery.inputmask.js"></script>
+
+
+<script>
+    $(document).ready(function () {
+        var $seuCampoCpf = $("#CPF");
+        $seuCampoCpf.mask('000.000.000-00', { reverse: true });
+        $("#data").inputmask('99/99/9999');
+        $("#CPF").inputmask('999.999.999-99');
+        $("#cnpj").inputmask('99.999.999/9999-99');
+        $("#Telefone").mask("(999) 999-9999");
+
+
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="https://rawgit.com/RobinHerbots/Inputmask/5.x/dist/jquery.inputmask.js"></script>
+
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.3/chosen.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.3/chosen.jquery.min.js"></script>
+
 
 
 

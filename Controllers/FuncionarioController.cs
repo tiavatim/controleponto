@@ -22,7 +22,7 @@ namespace ControlePonto.Controllers
 
         // GET: Funcionario
         public async Task<IActionResult> Index()
-        {
+        {   
             
             return View(await _context.funcionario.ToListAsync());
         }
