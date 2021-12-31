@@ -1,0 +1,363 @@
+﻿@model ControlePonto.Models.Funcionario
+
+@{
+    ViewData["Title"] = "Create";
+
+
+}
+
+<h1>Create</h1>
+
+<h4>Funcionario</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Nome" class="control-label"></label>
+                <input asp-for="Nome" class="form-control" />
+                <span asp-validation-for="Nome" class="text-danger"></span>
+            </div>
+
+
+            @*<div class="form-group">
+                    <label asp-for="CPF" class="control-label"></label>
+                    <input asp-for="CPF" class="form-control" />
+                    <span asp-validation-for="CPF" class="text-danger"></span>
+                </div>*@
+
+
+
+
+
+            <div class="form-group">
+                <div class="form-group form-group-default required">
+                    <label>CPF</label>
+                    <input id="txtCPF" asp-for="CPF" class="form-control" style="height: 39px" />
+                </div>
+            </div>
+
+
+            @*<div class="form-group">
+                    @Html.LabelFor(model => model.CPF, htmlAttributes: new { @class = "control-label" })
+                    @Html.EditorFor(model => model.CPF, new { htmlAttributes = new { @class = "form-control", placeholder = "000.000.000-00", data_tipo = "CPF" } })
+                    @Html.ValidationMessageFor(model => model.CPF, "", new { @class = "text-danger" })
+                </div>*@
+
+
+
+
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+
+
+            @*<div class="form-group">
+                    <label asp-for="Telefone" class="control-label"></label>
+                    <input asp-for="Telefone" class="form-control" />
+                    <span asp-validation-for="Telefone" class="text-danger"></span>
+                </div>*@
+
+
+            <div class="form-group">
+                <div class="form-group form-group-default required">
+                    <label>Telefone</label>
+                    
+                    <input type="text" id="Telefone" asp-for="Telefone" class="form-control" style="height: 39px" />
+                 </div>
+            </div>
+
+
+
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Habilitacao" /> @Html.DisplayNameFor(model => model.Habilitacao)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="Categoria" class="control-label"></label>
+                <input asp-for="Categoria" class="form-control" />
+                <span asp-validation-for="Categoria" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LinguaEstrangeira" class="control-label"></label>
+                <input asp-for="LinguaEstrangeira" class="form-control" />
+                <span asp-validation-for="LinguaEstrangeira" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group">
+                <div class="row">
+                    <label asp-for="@Model.CEP" class="control-label"></label>
+                    <input asp-for="CEP" class="form-control" />
+                    <span asp-validation-for="CEP" class="text-danger"></span>
+
+                    <div class="btn-group btn-group-sm float-right">
+                        <button type="button" style="" id="btnCEP" class="btn btn-outline-primary">
+                            Buscar
+                        </button>
+                    </div>
+
+
+
+                </div>
+
+            </div>
+
+
+
+
+            <div class="form-group">
+                <label asp-for="Estado" class="control-label"></label>
+                <input asp-for="Estado" class="form-control" />
+                <span asp-validation-for="Estado" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Cidade" class="control-label"></label>
+                <input asp-for="Cidade" class="form-control" />
+                <span asp-validation-for="Cidade" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group">
+                <label asp-for="Logradouro" class="control-label"></label>
+                <input asp-for="Logradouro" class="form-control" />
+                <span asp-validation-for="Logradouro" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Numero" class="control-label"></label>
+                <input asp-for="Numero" class="form-control" />
+                <span asp-validation-for="Numero" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Complemento" class="control-label"></label>
+                <input asp-for="Complemento" class="form-control" />
+                <span asp-validation-for="Complemento" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Cargo" class="control-label"></label>
+                <input asp-for="Cargo" class="form-control" />
+                <span asp-validation-for="Cargo" class="text-danger"></span>
+            </div>
+
+
+            <div class="dropdown">
+
+                <div class="form-group">
+                    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+                        Departamento
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Programação</a></li>
+                        <li><a href="#">Diretoria</a></li>
+                        <li><a href="#">Administração</a></li>
+
+                    </ul>
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+            <div class="form-group">
+                <label asp-for="SalarioProposto" class="control-label"></label>
+                <input asp-for="SalarioProposto" class="form-control" />
+                <span asp-validation-for="SalarioProposto" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DiadaSemana" class="control-label"></label>
+                <input asp-for="DiadaSemana" class="form-control" />
+                <span asp-validation-for="DiadaSemana" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HoraInicio" class="control-label"></label>
+                <input asp-for="HoraInicio" class="form-control" />
+                <span asp-validation-for="HoraInicio" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HoraFim" class="control-label"></label>
+                <input asp-for="HoraFim" class="form-control" />
+                <span asp-validation-for="HoraFim" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TempodeDescanso" class="control-label"></label>
+                <input asp-for="TempodeDescanso" class="form-control" />
+                <span asp-validation-for="TempodeDescanso" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CargaHoraria" class="control-label"></label>
+                <input asp-for="CargaHoraria" class="form-control" />
+                <span asp-validation-for="CargaHoraria" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CargaHorariaSEmanal" class="control-label"></label>
+                <input asp-for="CargaHorariaSEmanal" class="form-control" />
+                <span asp-validation-for="CargaHorariaSEmanal" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+
+@*<script>
+        $(document).ready(function () {
+            var $CPF = $("#CPF");
+            $CPF.mask('000.000.000-00', { reverse: true });
+        });
+    </script>*@
+
+
+
+@*script>
+    $(function () {
+        $("input[data-tipo=''CPF'']").mask("000.000.000-00");
+        $("input[data-tipo=''data'']").mask("00/00/0000");
+        $("input[data-tipo=''moeda'']").mask("000.000.000,00", { reverse: true });
+    });*@
+
+
+
+
+
+
+@*});
+    </script>*@
+
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+
+}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
+
+
+
+@*<script src="~/lib/jquery-mask-plugin/src/jquery.mask.js" type="text/javascript" asp-append-version="true"></script>*@
+
+@*<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>*@
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+<!--<input type="text" id="campoData">
+<input type="text" id="Telefone">
+<input type="text" id="campoSenha">
+
+
+<script>
+
+    jQuery(function ($) {
+        $("#campoData").mask("99/99/9999");
+        $("#Telefone").mask("(999) 999-9999");
+        $("#campoSenha").mask("***-****");
+    });-->
+@*</script>*@
+
+
+@*</script>*@
+
+
+
+<script type="text/javascript">
+
+
+        $(document).ready(function () {
+            initEvents();
+
+
+            //$("#Telefone").mask("(99) 9999-9999?9").on("focusout", function () {
+            //    var len = this.value.replace(/\D/g, '').length;
+            //    $(this).mask(len > 10 ? "(99) 99999-999?9" : "(99) 9999-9999?9");
+            //});
+
+
+
+            //var SPMaskBehavior = function (val) {
+            //    return val.replace(/\D/g, '').length === 11 ? '(00) 00000-0000' : '(00) 0000-00009';
+            //},
+            //    spOptions = {
+            //        onKeyPress: function (val, e, field, options) {
+            //            field.mask(SPMaskBehavior.apply({}, arguments), options);
+            //        }
+            //    };
+
+            //$('#Telefone').mask(SPMaskBehavior, spOptions);
+
+
+            $("#Telefone").mask("(99)99999-9999");
+
+
+
+
+
+
+
+    });
+
+    function initEvents() {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    $("#btnCEP").on("click", function () {
+
+        var cepcampo = $("#CEP").val();
+
+         var data = JSON.stringify({ cep: cepcampo });
+        $.ajax({
+            url: '@Url.Action("BuscarCEP", "Funcionario")' + '?cep=' + cepcampo.toString(),
+            type: 'POST',
+            data: cepcampo.toString(),
+            success: function (data) {
+                $("#Logradouro").val(data.bag.logradouro);
+                $("#Cidade").val(data.bag.localidade);
+                $("#Estado").val(data.bag.uf);
+
+
+               console.log(data)
+
+            },
+            error: function (error) {
+
+            }
+        })
+            });
+
+            }
+</script>
+
+
+
+
+
