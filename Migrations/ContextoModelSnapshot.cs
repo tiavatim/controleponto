@@ -21,7 +21,7 @@ namespace ControlePonto.Migrations
 
             modelBuilder.Entity("ControlePonto.Models.Funcionario", b =>
                 {
-                    b.Property<int?>("id")
+                    b.Property<int>("id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasColumnName("id")
@@ -107,13 +107,67 @@ namespace ControlePonto.Migrations
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("Telefone");
 
-                    b.Property<string>("TempodeDescanso")
-                        .HasColumnType("nvarchar(max)")
+                    b.Property<int?>("TempodeDescanso")
+                        .HasColumnType("int")
                         .HasColumnName("TempodeDescanso");
 
                     b.HasKey("id");
 
                     b.ToTable("TabFuncionario");
+                });
+
+            modelBuilder.Entity("ControlePonto.Models.HorarioModel", b =>
+                {
+                    b.Property<int>("HorarioID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("HorarioID")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("CargaHoraria")
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("CargaHoraria");
+
+                    b.Property<string>("CargaHorariaSEmanal")
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("CargaHorariaSEmanal");
+
+                    b.Property<string>("DiadaSemana")
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("DiadaSemana");
+
+                    b.Property<int?>("Funcionarioid")
+                        .HasColumnType("int");
+
+                    b.Property<string>("HoraFim")
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("HoraFim");
+
+                    b.Property<string>("HoraInicio")
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("HoraInicio");
+
+                    b.Property<int?>("TempodeDescanso")
+                        .HasColumnType("int")
+                        .HasColumnName("TempodeDescanso");
+
+                    b.Property<int>("id")
+                        .HasColumnType("int");
+
+                    b.HasKey("HorarioID");
+
+                    b.HasIndex("Funcionarioid");
+
+                    b.ToTable("TabHorario");
+                });
+
+            modelBuilder.Entity("ControlePonto.Models.HorarioModel", b =>
+                {
+                    b.HasOne("ControlePonto.Models.Funcionario", "Funcionario")
+                        .WithMany()
+                        .HasForeignKey("Funcionarioid");
+
+                    b.Navigation("Funcionario");
                 });
 #pragma warning restore 612, 618
         }

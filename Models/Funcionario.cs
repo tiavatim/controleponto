@@ -100,7 +100,7 @@ namespace ControlePonto.Models
 
         [Column("TempodeDescanso")]
         [Display(Name = "Tempo de Descanso")]
-        public string TempodeDescanso { get; set; }
+        public int? TempodeDescanso { get; set; }
 
 
         [Column("CargaHoraria")]

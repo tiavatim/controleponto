@@ -29,6 +29,9 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
+
+
+
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
@@ -38,18 +41,18 @@
             </div>
 
 
-            @*<div class="form-group">
-            <label asp-for="CPF" class="control-label"></label>
-            <input asp-for="CPF" class="form-control" />
-            <span asp-validation-for="CPF" class="text-danger"></span>
-        </div>*@
+            <div class="form-group">
+                <label asp-for="CPF" class="control-label"></label>
+                <input asp-for="CPF" class="form-control" />
+                <span asp-validation-for="CPF" class="text-danger"></span>
+            </div>
 
 
 
-            @*<input type="text" id="CPF" />*@
+            <input type="text" id="CPF" />
 
 
-            @*<input type="text" id="cpf" /><br />*@
+
 
 
 
@@ -95,40 +98,93 @@
 
 
 
+            @*<div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Habilitacao" /> @Html.DisplayNameFor(model => model.Habilitacao)
+                </label>
+            </div>*@
+
+
+
+
             <div class="form-group form-check">
                 <label class="form-check-label">
                     <input class="form-check-input" asp-for="Habilitacao" /> @Html.DisplayNameFor(model => model.Habilitacao)
                 </label>
             </div>
+
+
+
+
+
             <div class="form-group">
                 <label asp-for="Categoria" class="control-label"></label>
-                <input asp-for="Categoria" class="form-control" />
-                <span asp-validation-for="Categoria" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="LinguaEstrangeira" class="control-label"></label>
-                <input asp-for="LinguaEstrangeira" class="form-control" />
-                <span asp-validation-for="LinguaEstrangeira" class="text-danger"></span>
+                <input asp-for="Categoria" class="form-control" readonly />
+                <span asp-validation-for="Categoria" class="text-danger" readonly></span>
             </div>
 
 
+
+
+
+
+
+
             <div class="form-group">
-                <div class="row">
+                <ul id="select-options-8fd56ab7-fd42-40e4-982f-351a23bb110b" class="dropdown-content select-dropdown w-100 multiple-select-dropdown" style="display: none; max-height: 265.172px; width: 815px; position: absolute; top: 0px; left: 0px; opacity: 1;">
+                </ul><select class="mdb-select colorful-select dropdown-primary md-form initialized" multiple="" searchable="Search here..">
+                    <option value="" disabled="" selected="">Escolha o seu país</option>
+                    <option value="1">Inglês</option>
+                    <option value="2">Espanhol </option>
+                    <option value="3">Francês</option>
+                </select><label class="mdb-main-label active">Lingua estrangeira"</label>
+                <button type="button" style="" id="btnLinguaestrangeira" class="btn-save btn btn-primary btn-sm waves-effect waves-light">Save</button>
+            </div>
+
+
+            <script type="text/javascript" src="https://mdbootstrap.com/api/snippets/static/download/MDB-Pro_4.20.0/js/jquery.min.js"></script>
+            <script type="text/javascript" src="https://mdbootstrap.com/api/snippets/static/download/MDB-Pro_4.20.0/js/popper.min.js"></script>
+            <script type="text/javascript" src="https://mdbootstrap.com/api/snippets/static/download/MDB-Pro_4.20.0/js/bootstrap.min.js"></script>
+            <script type="text/javascript" src="https://mdbootstrap.com/api/snippets/static/download/MDB-Pro_4.20.0/js/mdb.min.js"></script>
+            <script type="text/javascript" src="https://mdbootstrap.com/wp-content/themes/mdbootstrap4/docs-app/js/bundles/4.20.0/compiled-addons.min.js"></script>
+            <script type="text/javascript" src="https://mdbootstrap.com/wp-content/themes/mdbootstrap4/js/plugins/mdb-plugins-gathered.min.js"></script>
+
+
+            <script type="text/javascript">
+                {// Material Select Initialization
+                    $(document).ready(function () {
+                        $('.mdb-select').materialSelect();
+                    });
+                }</script>
+
+
+
+            <div class="form-row">
+                <div class="col-7">
                     <label asp-for="@Model.CEP" class="control-label"></label>
                     <input asp-for="CEP" class="form-control" />
                     <span asp-validation-for="CEP" class="text-danger"></span>
 
-                    <div class="btn-group btn-group-sm float-right">
-                        <button type="button" style="" id="btnCEP" class="btn btn-outline-primary">
-                            Buscar
-                        </button>
-                    </div>
-
-
-
                 </div>
 
+                <div class="btn-group btn-group-sm float-right col">
+                    <button type="button" style="" id="btnCEP" class="btn btn-outline-primary">
+                        Buscar
+                    </button>
+                </div>
+
+
+
+
             </div>
+
+
+            <div class="form-group col-md-4">
+                <label>CEP</label>
+                <input type="text" class="form-control" onkeypress="$(this).mask('00.000-000')">
+            </div>
+
+
 
 
 
@@ -173,23 +229,7 @@
                     <option value="4">Administrador</option>
                     <option value="5">Gerente</option>
                 </select>
-
-      
-            
-            
-            
-            @*<div class="form-group">
-                <label asp-for="Cargo" class="control-label"></label>
-                <input asp-for="Cargo" class="form-control" />
-                <span asp-validation-for="Cargo" class="text-danger"></span>
-            </div>*@
-
-                     
-
-
-
             </div>
-
 
 
             <div class="form-group">
@@ -197,16 +237,77 @@
                 <input asp-for="SalarioProposto" class="form-control" />
                 <span asp-validation-for="SalarioProposto" class="text-danger"></span>
             </div>
+
+
             <div class="form-group">
-                <label asp-for="DiadaSemana" class="control-label"></label>
-                <input asp-for="DiadaSemana" class="form-control" />
+                <div class="form-group form-group-default required">
+                    <label>SalarioProposto</label>
+                    <input id="SalarioProposto" asp-for="SalarioProposto" class="form-control" style="height: 39px" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Moeda / Dinheiro</label>
+                <input type="text" class="form-control" onkeypress="$(this).mask('R$ ##.##0,00')">
+            </div>
+
+
+
+
+            @*<div class="form-group">
+            <label asp-for="DiadaSemana" class="control-label"></label>
+            <input asp-for="DiadaSemana" class="form-control" />
+            <span asp-validation-for="DiadaSemana" class="text-danger"></span>
+        </div>*@
+
+
+            <div class="form-group">
+                @*<label asp-for="DiadaSemana" class="control-label"></label>*@
+                <label for="DiadaSemana">Dia da Semana</label>
+                <select asp-for="DiadaSemana" class="form-control">
+
+                    <option selected>Escolher...</option>
+                    <option>Domingo</option>
+                    <option>Segunda Feira</option>
+                    <option>Terça Feira</option>
+                    <option>Quarta Feira</option>
+                    <option>Quinta Feira</option>
+                    <option>Sexta Feira</option>
+                    <option>Sábado</option>
+                </select>
                 <span asp-validation-for="DiadaSemana" class="text-danger"></span>
             </div>
+
+
+
             <div class="form-group">
                 <label asp-for="HoraInicio" class="control-label"></label>
                 <input asp-for="HoraInicio" class="form-control" />
                 <span asp-validation-for="HoraInicio" class="text-danger"></span>
             </div>
+
+
+
+            <div class="form-group">
+                <label>Hora</label>
+                <input type="text" class="form-control" onkeypress="$(this).mask('00h 00m')">
+            </div>
+
+
+
+            <div class="form-row">
+                <div class="col-7">
+                    <input type="text" class="form-control" placeholder="Cidade">
+                </div>
+                <div class="col">
+                    <input type="text" class="form-control" placeholder="Estado">
+                </div>
+
+            </div>
+
+
+
+
             <div class="form-group">
                 <label asp-for="HoraFim" class="control-label"></label>
                 <input asp-for="HoraFim" class="form-control" />
@@ -219,7 +320,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="CargaHoraria" class="control-label"></label>
-                <input asp-for="CargaHoraria" class="form-control" />
+                <input asp-for="CargaHoraria" class="form-control" readonly />
                 <span asp-validation-for="CargaHoraria" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -228,7 +329,13 @@
                 <span asp-validation-for="CargaHorariaSEmanal" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" id="btnCreate" value="Create" class="btn btn-primary" />
+
+
+
+
+
+
             </div>
         </form>
     </div>
@@ -242,7 +349,7 @@
 
 
 
-}
+
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
@@ -251,41 +358,34 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.13/jquery.mask.js"></script>
+
+
+
+
+
+<script src="jquery.min.js" type="text/javascript"></script>
+<script src="jquery.maskMoney.js" type="text/javascript"></script>
+
+
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="https://rawgit.com/RobinHerbots/Inputmask/5.x/dist/jquery.inputmask.js"></script>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.13/jquery.mask.js"></script>
+
+
+
+
 
 <script type="text/javascript">
 
-
-        $(document).ready(function () {
-            initEvents();
-
-
-    });
-
-    function initEvents() {
-        $(".btn").on("click", function () {
-            alert("clicou")
-
-            var horaInicio = parseInt($('#HoraInicio').val());
-            alert("hora inicial = " +horaInicio )
-            var horaFim = parseInt($('#HoraFim').val());
-            alert("horaFim = " + horaFim  )
-            var tempoDescanso = parseInt($('#TempodeDescanso').val());
-            alert("tempoDescanso = " + tempoDescanso);
-                   
-            var cargaHoraria = horaFim - horaInicio - tempoDescanso;
-            alert("cargaHoraria " + cargaHoraria);
-
-            $('#CargaHoraria').val(cargaHoraria);
-
-
-            if (parseInt(cargaHoraria) > 10) {
-                alert("Passou de 10")
-            }
-
-                       
-        });
-
-       
         $("#btnCEP").on("click", function () {
 
         var cepcampo = $("#CEP").val();
@@ -308,9 +408,37 @@
 
             }
         })
-            });
+         });
 
-            }
+
+</script>
+
+
+<script type="text/javascript">
+
+    $("#btnCreate").on("click", function () {
+        alert("clicou")
+
+        var horaInicio = parseInt($('#HoraInicio').val());
+        alert("hora inicial = " + horaInicio)
+        var horaFim = parseInt($('#HoraFim').val());
+        alert("horaFim = " + horaFim)
+        var tempoDescanso = parseInt($('#TempodeDescanso').val());
+        alert("tempoDescanso = " + tempoDescanso);
+
+        var cargaHoraria = horaFim - horaInicio - tempoDescanso;
+        alert("cargaHoraria " + cargaHoraria);
+
+        $('#CargaHoraria').val(cargaHoraria);
+
+
+        if (parseInt(cargaHoraria) > 10) {
+            alert("Passou de 10")
+        }
+
+
+    });
+
 </script>
 
 
@@ -328,15 +456,100 @@
 
     });
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-<script src="https://rawgit.com/RobinHerbots/Inputmask/5.x/dist/jquery.inputmask.js"></script>
 
 
 
+<script>
+
+
+    $(document).ready(function () {
+        $('.date').mask('00/00/0000');
+        $('.time').mask('00:00:00');
+        $('.date_time').mask('00/00/0000 00:00:00');
+        $('cep').mask('00000-000');
+        $('Telefone').mask('(00)00000-0000');
+        $('.phone_with_ddd').mask('(00) 0000-0000');
+        $('.phone_us').mask('(000) 000-0000');
+        $('.phone_br').focusout(function () {
+            var phone, element;
+            element = $(this);
+            element.unmask();
+            phone = element.val().replace(/\D/g, '');
+            if (phone.length > 10) {
+                element.mask("(99) 99999-9999");
+            } else {
+                element.mask("(99) 9999-99999");
+            }
+        }).trigger('focusout');
+        $('.mixed').mask('AAA 000-S0S');
+        $('#CPF').mask('000.000.000-00', { reverse: true });
+        $('.cnpj').mask('00.000.000/0000-00', { reverse: true });
+        $('.money').mask('000.000.000.000.000,00', { reverse: true });
+        $('#SalarioProposto').mask("#.##0,00", { reverse: true });
+        $('.integer').mask("#.##0", { reverse: true });
+        $('.ip_address').mask('0ZZ.0ZZ.0ZZ.0ZZ', {
+            translation: {
+                'Z': {
+                    pattern: /[0-9]/, optional: true
+                }
+            }
+        });
+        $('.ip_address').mask('099.099.099.099');
+        $('.percent').mask('##0,00%', { reverse: true });
+        $('.clear-if-not-match').mask("00/00/0000", { clearIfNotMatch: true });
+        $('.placeholder').mask("00/00/0000", { placeholder: "<mark>/</mark>/<mark></mark>" });
+        $('.fallback').mask("00r00r0000", {
+            translation: {
+                'r': {
+                    pattern: /[\/]/,
+                    fallback: '/'
+                },
+                placeholder: "<mark>/</mark>/<mark></mark>"
+            }
+        });
+
+
+        $('.selectonfocus').mask("00/00/0000", { selectOnFocus: true });
 
 
 
+    });
+
+
+
+
+
+
+</script>
+
+
+
+<script type="text/javascript">
+    $(document).on('click', '#Habilitacao', function () {
+        if ($('#Habilitacao').is(':checked')) {
+            $('#Categoria').removeAttr('readonly')
+        } else {
+            $('#Categoria').attr('readonly', 'true')
+            $('#Categoria').val('')
+        }
+    });
+
+
+</script>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&amp;display=swap">
+    <link rel="stylesheet" href="https://mdbootstrap.com/api/snippets/static/download/MDB-Pro_4.20.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://mdbootstrap.com/api/snippets/static/download/MDB-Pro_4.20.0/css/mdb.min.css">
+    <link rel="stylesheet" href="https://mdbootstrap.com/wp-content/themes/mdbootstrap4/docs-app/css/compiled-addons-4.20.0.min.css">
+    <link rel="stylesheet" type="text/css" href="https://mdbootstrap.com/wp-content/themes/mdbootstrap4/css/mdb-plugins-gathered.min.css">
+    <style></style>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.mdb-select').materialSelect().val();
+        });
+    </script>
 
 
 

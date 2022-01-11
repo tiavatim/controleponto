@@ -7,53 +7,25 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ControlePonto.Data;
 using ControlePonto.Models;
-using ControlePonto.Helpers;
 
 namespace ControlePonto.Controllers
 {
-    public class FuncionarioController : Controller
+    public class HorarioController : Controller
     {
         private readonly Contexto _context;
 
-        public FuncionarioController(Contexto context)
+        public HorarioController(Contexto context)
         {
             _context = context;
         }
 
-        // GET: Funcionario
+        // GET: Horario
         public async Task<IActionResult> Index()
-        {   
-            
-            return View(await _context.funcionario.ToListAsync());
-        }
-
-
-        public ActionResult BuscarCEP(string cep)
         {
-           
-
-            var result = new AjaxActionResult();
-
-            try
-            {
-
-                var resultcep = Cep.BuscarCEP(cep);
-
-                result.bag = resultcep;
-                result.isOk = true;
-
-            }
-            catch (Exception ex)
-            {
-                result.isOk = false;
-                result.message = ex.Message;
-            }
-
-            return Json(result);
-
+            return View(await _context.HorarioModel.ToListAsync());
         }
 
-        // GET: Funcionario/Details/5
+        // GET: Horario/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -61,41 +33,39 @@ namespace ControlePonto.Controllers
                 return NotFound();
             }
 
-            var funcionario = await _context.funcionario
-                .FirstOrDefaultAsync(m => m.id == id);
-            if (funcionario == null)
+            var horarioModel = await _context.HorarioModel
+                .FirstOrDefaultAsync(m => m.HorarioID == id);
+            if (horarioModel == null)
             {
                 return NotFound();
             }
 
-            return View(funcionario);
+            return View(horarioModel);
         }
 
-        // GET: Funcionario/Create
+        // GET: Horario/Create
         public IActionResult Create()
         {
-           
-
             return View();
         }
 
-        // POST: Funcionario/Create
+        // POST: Horario/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("id,Nome,CPF,Email,Telefone,Habilitacao,Categoria,LinguaEstrangeira,Estado,Cidade,CEP,Logradouro,Numero,Complemento,Cargo,SalarioProposto,DiadaSemana,HoraInicio,HoraFim,TempodeDescanso,CargaHoraria,CargaHorariaSEmanal")] Funcionario funcionario)
+        public async Task<IActionResult> Create([Bind("HorarioID,DiadaSemana,HoraInicio,HoraFim,TempodeDescanso,CargaHoraria,CargaHorariaSEmanal,id")] HorarioModel horarioModel)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(funcionario);
+                _context.Add(horarioModel);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(funcionario);
+            return View(horarioModel);
         }
 
-        // GET: Funcionario/Edit/5
+        // GET: Horario/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -103,22 +73,22 @@ namespace ControlePonto.Controllers
                 return NotFound();
             }
 
-            var funcionario = await _context.funcionario.FindAsync(id);
-            if (funcionario == null)
+            var horarioModel = await _context.HorarioModel.FindAsync(id);
+            if (horarioModel == null)
             {
                 return NotFound();
             }
-            return View(funcionario);
+            return View(horarioModel);
         }
 
-        // POST: Funcionario/Edit/5
+        // POST: Horario/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int? id, [Bind("id,Nome,CPF,Email,Telefone,Habilitacao,Categoria,LinguaEstrangeira,Estado,Cidade,CEP,Logradouro,Numero,Complemento,Cargo,SalarioProposto,DiadaSemana,HoraInicio,HoraFim,TempodeDescanso,CargaHoraria,CargaHorariaSEmanal")] Funcionario funcionario)
+        public async Task<IActionResult> Edit(int id, [Bind("HorarioID,DiadaSemana,HoraInicio,HoraFim,TempodeDescanso,CargaHoraria,CargaHorariaSEmanal,id")] HorarioModel horarioModel)
         {
-            if (id != funcionario.id)
+            if (id != horarioModel.HorarioID)
             {
                 return NotFound();
             }
@@ -127,12 +97,12 @@ namespace ControlePonto.Controllers
             {
                 try
                 {
-                    _context.Update(funcionario);
+                    _context.Update(horarioModel);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!FuncionarioExists(funcionario.id))
+                    if (!HorarioModelExists(horarioModel.HorarioID))
                     {
                         return NotFound();
                     }
@@ -143,10 +113,10 @@ namespace ControlePonto.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(funcionario);
+            return View(horarioModel);
         }
 
-        // GET: Funcionario/Delete/5
+        // GET: Horario/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -154,30 +124,30 @@ namespace ControlePonto.Controllers
                 return NotFound();
             }
 
-            var funcionario = await _context.funcionario
-                .FirstOrDefaultAsync(m => m.id == id);
-            if (funcionario == null)
+            var horarioModel = await _context.HorarioModel
+                .FirstOrDefaultAsync(m => m.HorarioID == id);
+            if (horarioModel == null)
             {
                 return NotFound();
             }
 
-            return View(funcionario);
+            return View(horarioModel);
         }
 
-        // POST: Funcionario/Delete/5
+        // POST: Horario/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int? id)
+        public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var funcionario = await _context.funcionario.FindAsync(id);
-            _context.funcionario.Remove(funcionario);
+            var horarioModel = await _context.HorarioModel.FindAsync(id);
+            _context.HorarioModel.Remove(horarioModel);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool FuncionarioExists(int? id)
+        private bool HorarioModelExists(int id)
         {
-            return _context.funcionario.Any(e => e.id == id);
+            return _context.HorarioModel.Any(e => e.HorarioID == id);
         }
     }
 }

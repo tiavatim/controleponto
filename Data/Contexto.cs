@@ -14,6 +14,7 @@ namespace ControlePonto.Data
             Database.EnsureCreated();
         }
         public DbSet<Funcionario> funcionario { get; set; }
+        public DbSet<HorarioModel> HorarioModel { get; set; }
 
     }
 
