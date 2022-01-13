@@ -15,7 +15,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.DiadaSemana)
             </th>
-            <th>
+            <th> 
                 @Html.DisplayNameFor(model => model.HoraInicio)
             </th>
             <th>
@@ -31,7 +31,7 @@
                 @Html.DisplayNameFor(model => model.CargaHorariaSEmanal)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Funcionario.Nome)
+                @Html.DisplayNameFor(model => model.Funcionario)
             </th>
             <th></th>
         </tr>
@@ -58,7 +58,7 @@
                 @Html.DisplayFor(modelItem => item.CargaHorariaSEmanal)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.id)
+                @Html.DisplayFor(modelItem => item.Funcionario.Nome)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.HorarioID">Edit</a> |

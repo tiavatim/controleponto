@@ -22,15 +22,15 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         @*<li class="nav-item">
-            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </li>*@
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            </li>*@
 
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Funcionario" asp-action="Index">Cadastro</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Horario" asp-action="Index">Horario</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Horario" asp-action="Index">Horário</a>
                         </li>
 
 
@@ -57,113 +57,149 @@
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 
+
+
+
+
+
+    @*<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.13/jquery.mask.js"></script>*@
+
+
     @*<script src="~/js/jquery.inputmask.js"></script>
-    <script>
+        <script>
 
-        $(document).ready(function () {
-            $("#data").inputmask('99 /99/9999');
-            $("#CPF").inputmask('999.999.999-99');
-            $("#cnpj").inputmask('99.999.999 /9999-99');
-            $("#Telefone").inputmask('(99)99999-9999');
+             $(document).ready(function () {
+                $("#CPF").inputmask('999.999.999-99');
+                $("#Telefone").inputmask('(99)99999-9999');
+                 //$("#HoraInicio").inputmask('00:00:00');
+                 //$("#HoraFim").inputmask('00: 00: 00');
+            });
 
-
-    </script>*@
-
-
+        </script>*@
 
 
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript"></script>
-    <script src="dist/jquery.maskMoney.min.js" type="text/javascript"></script>
-
-    <script src="jquery.min.js" type="text/javascript"></script>
-    <script src="jquery.maskMoney.js" type="text/javascript"></script>
-
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-    <script src="https://rawgit.com/RobinHerbots/Inputmask/5.x/dist/jquery.inputmask.js"></script>
-
-
-    <script>
+    @*<script src="https://code.jquery.com/jquery-1.10.0.min.js"></script>
+        <script src="https://rawgit.com/RobinHerbots/Inputmask/3.x/dist/jquery.inputmask.bundle.js"></script>*@
 
 
 
-        $(document).ready(function () {
-            $('.date').mask('00/00/0000');
-            $('.time').mask('00:00:00');
-            $('.date_time').mask('00/00/0000 00:00:00');
-            $('.cep').mask('00000-000');
-            $('.Telefone').mask('(00)90000-0000');
-            $('.phone_with_ddd').mask('(00) 0000-0000');
-            $('.phone_us').mask('(000) 000-0000');
-            $('.phone_br').focusout(function () {
-                var phone, element;
-                element = $(this);
-                element.unmask();
-                phone = element.val().replace(/\D/g, '');
-                if (phone.length > 10) {
-                    element.mask("(99) 99999-9999");
-                } else {
-                    element.mask("(99) 9999-99999");
-                }
-            }).trigger('focusout');
-            $('.mixed').mask('AAA 000-S0S');
-            $('.cpf').mask('000.000.000-00', { reverse: true });
-            $('.cnpj').mask('00.000.000/0000-00', { reverse: true });
-            $('.money').mask('000.000.000.000.000,00', { reverse: true });
-            $('.SalarioProposto').mask("#.##0,00", { reverse: true });
-            $('.integer').mask("#.##0", { reverse: true });
-            $('.ip_address').mask('0ZZ.0ZZ.0ZZ.0ZZ', {
-                translation: {
-                    'Z': {
-                        pattern: /[0-9]/, optional: true
+
+
+    @*<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+        <script src="https://rawgit.com/RobinHerbots/Inputmask/5.x/dist/jquery.inputmask.js"></script>*@
+
+
+
+
+
+
+    @*<script src="jquery.min.js" type="text/javascript"></script>
+        <script src="jquery.maskMoney.js" type="text/javascript"></script>*@
+
+
+    @*<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript"></script>
+    <script src="dist/jquery.maskMoney.min.js" type="text/javascript"></script>*@
+
+    @*<script src="jquery.min.js" type="text/javascript"></script>
+        <script src="jquery.maskMoney.js" type="text/javascript"></script>*@
+
+
+    @*<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+        <script src="https://rawgit.com/RobinHerbots/Inputmask/5.x/dist/jquery.inputmask.js"></script>*@
+
+
+    @*<script>
+
+
+
+            $(document).ready(function () {
+                $('.date').mask('00/00/0000');
+                $('.time').mask('00:00:00');
+                $('.date_time').mask('00/00/0000 00:00:00');
+                $('.cep').mask('00000-000');
+                $('.Telefone').mask('(00)90000-0000');
+                $('.phone_with_ddd').mask('(00) 0000-0000');
+                $('.phone_us').mask('(000) 000-0000');
+                $('.phone_br').focusout(function () {
+                    var phone, element;
+                    element = $(this);
+                    element.unmask();
+                    phone = element.val().replace(/\D/g, '');
+                    if (phone.length > 10) {
+                        element.mask("(99) 99999-9999");
+                    } else {
+                        element.mask("(99) 9999-99999");
                     }
-                }
+                }).trigger('focusout');
+                $('.mixed').mask('AAA 000-S0S');
+                $('#CPF').mask('000.000.000-00', { reverse: true });
+                $('.cnpj').mask('00.000.000/0000-00', { reverse: true });
+                $('.money').mask('000.000.000.000.000,00', { reverse: true });
+                $('.SalarioProposto').mask("#.##0,00", { reverse: true });
+                $('.integer').mask("#.##0", { reverse: true });
+                $('.ip_address').mask('0ZZ.0ZZ.0ZZ.0ZZ', {
+                    translation: {
+                        'Z': {
+                            pattern: /[0-9]/, optional: true
+                        }
+                    }
+                });
+                $('.ip_address').mask('099.099.099.099');
+                $('.percent').mask('##0,00%', { reverse: true });
+                $('.clear-if-not-match').mask("00/00/0000", { clearIfNotMatch: true });
+                $('.placeholder').mask("00/00/0000", { placeholder: "<mark>/</mark>/<mark></mark>" });
+                $('.fallback').mask("00r00r0000", {
+                    translation: {
+                        'r': {
+                            pattern: /[\/]/,
+                            fallback: '/'
+                        },
+                        placeholder: "<mark>/</mark>/<mark></mark>"
+                    }
+                });
+                $('.selectonfocus').mask("00/00/0000", { selectOnFocus: true });
             });
-            $('.ip_address').mask('099.099.099.099');
-            $('.percent').mask('##0,00%', { reverse: true });
-            $('.clear-if-not-match').mask("00/00/0000", { clearIfNotMatch: true });
-            $('.placeholder').mask("00/00/0000", { placeholder: "<mark>/</mark>/<mark></mark>" });
-            $('.fallback').mask("00r00r0000", {
-                translation: {
-                    'r': {
-                        pattern: /[\/]/,
-                        fallback: '/'
-                    },
-                    placeholder: "<mark>/</mark>/<mark></mark>"
-                }
-            });
-            $('.selectonfocus').mask("00/00/0000", { selectOnFocus: true });
-        });
 
 
 
 
 
-    </script>
-
-
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.13/jquery.mask.js"></script>
+        </script>*@
 
 
 
 
-        @*<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&amp;display=swap">
-        <link rel="stylesheet" href="https://mdbootstrap.com/api/snippets/static/download/MDB-Pro_4.20.0/css/bootstrap.min.css">
-        <link rel="stylesheet" href="https://mdbootstrap.com/api/snippets/static/download/MDB-Pro_4.20.0/css/mdb.min.css">
-        <link rel="stylesheet" href="https://mdbootstrap.com/wp-content/themes/mdbootstrap4/docs-app/css/compiled-addons-4.20.0.min.css">
-        <link rel="stylesheet" type="text/css" href="https://mdbootstrap.com/wp-content/themes/mdbootstrap4/css/mdb-plugins-gathered.min.css">
-        <style></style>*@
- 
+
+
+
+
+
+
+
+
+
+
+    @*<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.13/jquery.mask.js"></script>*@
+
+
+
+    @*campo lingua estrangeira*@
+     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&amp;display=swap">
+    <link rel="stylesheet" href="https://mdbootstrap.com/api/snippets/static/download/MDB-Pro_4.20.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://mdbootstrap.com/api/snippets/static/download/MDB-Pro_4.20.0/css/mdb.min.css">
+    <link rel="stylesheet" href="https://mdbootstrap.com/wp-content/themes/mdbootstrap4/docs-app/css/compiled-addons-4.20.0.min.css">
+    <link rel="stylesheet" type="text/css" href="https://mdbootstrap.com/wp-content/themes/mdbootstrap4/css/mdb-plugins-gathered.min.css">
+    <style></style>
+
     @*<div class="form-group">
 
-            
+
             <ul id="select-options-8fd56ab7-fd42-40e4-982f-351a23bb110b" class="dropdown-content select-dropdown w-100 multiple-select-dropdown" style="display: none; max-height: 265.172px; width: 815px; position: absolute; top: 0px; left: 0px; opacity: 1;">
-            
             </ul><select class="mdb-select colorful-select dropdown-primary md-form initialized" multiple="" searchable="Search here..">
                 <option value="" disabled="" selected="">Choose your country2</option>
                 <option value="1">USA</option>
@@ -176,27 +212,36 @@
         </div>*@
 
 
-        <script type="text/javascript" src="https://mdbootstrap.com/api/snippets/static/download/MDB-Pro_4.20.0/js/jquery.min.js"></script>
-        <script type="text/javascript" src="https://mdbootstrap.com/api/snippets/static/download/MDB-Pro_4.20.0/js/popper.min.js"></script>
-        <script type="text/javascript" src="https://mdbootstrap.com/api/snippets/static/download/MDB-Pro_4.20.0/js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="https://mdbootstrap.com/api/snippets/static/download/MDB-Pro_4.20.0/js/mdb.min.js"></script>
-        <script type="text/javascript" src="https://mdbootstrap.com/wp-content/themes/mdbootstrap4/docs-app/js/bundles/4.20.0/compiled-addons.min.js"></script>
-        <script type="text/javascript" src="https://mdbootstrap.com/wp-content/themes/mdbootstrap4/js/plugins/mdb-plugins-gathered.min.js"></script>
-       
-    
+    <script type="text/javascript" src="https://mdbootstrap.com/api/snippets/static/download/MDB-Pro_4.20.0/js/jquery.min.js"></script>
+    <script type="text/javascript" src="https://mdbootstrap.com/api/snippets/static/download/MDB-Pro_4.20.0/js/popper.min.js"></script>
+    <script type="text/javascript" src="https://mdbootstrap.com/api/snippets/static/download/MDB-Pro_4.20.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://mdbootstrap.com/api/snippets/static/download/MDB-Pro_4.20.0/js/mdb.min.js"></script>
+    <script type="text/javascript" src="https://mdbootstrap.com/wp-content/themes/mdbootstrap4/docs-app/js/bundles/4.20.0/compiled-addons.min.js"></script>
+    <script type="text/javascript" src="https://mdbootstrap.com/wp-content/themes/mdbootstrap4/js/plugins/mdb-plugins-gathered.min.js"></script>
+
+
+    @*Mascara dos campos*@
+    @*<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>*@
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.13/jquery.mask.js"></script>
+
+
+
+
+
+
     <script type="text/javascript">
         {// Material Select Initialization
-                $(document).ready(function () {
-                    $('.mdb-select').materialSelect();
-                });
-         }</script>
-    
+            $(document).ready(function () {
+                $('.mdb-select').materialSelect();
+            });
+        }</script>
 
 
 
 
 
-
+    @*<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.13/jquery.mask.js"></script>*@
 
 
 

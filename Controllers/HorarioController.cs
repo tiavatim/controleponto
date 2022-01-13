@@ -22,7 +22,8 @@ namespace ControlePonto.Controllers
         // GET: Horario
         public async Task<IActionResult> Index()
         {
-            return View(await _context.HorarioModel.ToListAsync());
+            var contexto = _context.HorarioModel.Include(h => h.Funcionario);
+            return View(await contexto.ToListAsync());
         }
 
         // GET: Horario/Details/5
@@ -34,6 +35,7 @@ namespace ControlePonto.Controllers
             }
 
             var horarioModel = await _context.HorarioModel
+                .Include(h => h.Funcionario)
                 .FirstOrDefaultAsync(m => m.HorarioID == id);
             if (horarioModel == null)
             {
@@ -46,6 +48,7 @@ namespace ControlePonto.Controllers
         // GET: Horario/Create
         public IActionResult Create()
         {
+            ViewData["FuncionarioID"] = new SelectList(_context.funcionario, "id", "id");
             return View();
         }
 
@@ -54,7 +57,7 @@ namespace ControlePonto.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("HorarioID,DiadaSemana,HoraInicio,HoraFim,TempodeDescanso,CargaHoraria,CargaHorariaSEmanal,id")] HorarioModel horarioModel)
+        public async Task<IActionResult> Create([Bind("HorarioID,DiadaSemana,HoraInicio,HoraFim,TempodeDescanso,CargaHoraria,CargaHorariaSEmanal,FuncionarioID")] HorarioModel horarioModel)
         {
             if (ModelState.IsValid)
             {
@@ -62,6 +65,7 @@ namespace ControlePonto.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["FuncionarioID"] = new SelectList(_context.funcionario, "id", "id", horarioModel.FuncionarioID);
             return View(horarioModel);
         }
 
@@ -78,6 +82,7 @@ namespace ControlePonto.Controllers
             {
                 return NotFound();
             }
+            ViewData["FuncionarioID"] = new SelectList(_context.funcionario, "id", "id", horarioModel.FuncionarioID);
             return View(horarioModel);
         }
 
@@ -86,7 +91,7 @@ namespace ControlePonto.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("HorarioID,DiadaSemana,HoraInicio,HoraFim,TempodeDescanso,CargaHoraria,CargaHorariaSEmanal,id")] HorarioModel horarioModel)
+        public async Task<IActionResult> Edit(int id, [Bind("HorarioID,DiadaSemana,HoraInicio,HoraFim,TempodeDescanso,CargaHoraria,CargaHorariaSEmanal,FuncionarioID")] HorarioModel horarioModel)
         {
             if (id != horarioModel.HorarioID)
             {
@@ -113,6 +118,7 @@ namespace ControlePonto.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["FuncionarioID"] = new SelectList(_context.funcionario, "id", "id", horarioModel.FuncionarioID);
             return View(horarioModel);
         }
 
@@ -125,6 +131,7 @@ namespace ControlePonto.Controllers
             }
 
             var horarioModel = await _context.HorarioModel
+                .Include(h => h.Funcionario)
                 .FirstOrDefaultAsync(m => m.HorarioID == id);
             if (horarioModel == null)
             {

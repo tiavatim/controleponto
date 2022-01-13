@@ -57,25 +57,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.SalarioProposto)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DiadaSemana)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.HoraInicio)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.HoraFim)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TempodeDescanso)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CargaHoraria)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CargaHorariaSEmanal)
-            </th>
-            <th></th>
+           
         </tr>
     </thead>
     <tbody>
@@ -126,24 +108,7 @@
             <td>
                 @Html.DisplayFor(modelItem => item.SalarioProposto)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DiadaSemana)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.HoraInicio)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.HoraFim)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TempodeDescanso)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CargaHoraria)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CargaHorariaSEmanal)
-            </td>
+          
             <td>
                 <a asp-action="Edit" asp-route-id="@item.id">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.id">Details</a> |

@@ -84,7 +84,7 @@ namespace ControlePonto.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("id,Nome,CPF,Email,Telefone,Habilitacao,Categoria,LinguaEstrangeira,Estado,Cidade,CEP,Logradouro,Numero,Complemento,Cargo,SalarioProposto,DiadaSemana,HoraInicio,HoraFim,TempodeDescanso,CargaHoraria,CargaHorariaSEmanal")] Funcionario funcionario)
+        public async Task<IActionResult> Create([Bind("id,Nome,CPF,Email,Telefone,Habilitacao,Categoria,LinguaEstrangeira,Estado,Cidade,CEP,Logradouro,Numero,Complemento,Cargo,SalarioProposto")] Funcionario funcionario)
         {
             if (ModelState.IsValid)
             {
@@ -116,7 +116,7 @@ namespace ControlePonto.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int? id, [Bind("id,Nome,CPF,Email,Telefone,Habilitacao,Categoria,LinguaEstrangeira,Estado,Cidade,CEP,Logradouro,Numero,Complemento,Cargo,SalarioProposto,DiadaSemana,HoraInicio,HoraFim,TempodeDescanso,CargaHoraria,CargaHorariaSEmanal")] Funcionario funcionario)
+        public async Task<IActionResult> Edit(int? id, [Bind("id,Nome,CPF,Email,Telefone,Habilitacao,Categoria,LinguaEstrangeira,Estado,Cidade,CEP,Logradouro,Numero,Complemento,Cargo,SalarioProposto")] Funcionario funcionario)
         {
             if (id != funcionario.id)
             {

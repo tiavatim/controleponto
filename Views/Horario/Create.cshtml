@@ -12,52 +12,114 @@
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            @*<div class="form-group">
+            <label asp-for="DiadaSemana" class="control-label"></label>
+            <input asp-for="DiadaSemana" class="form-control" />
+            <span asp-validation-for="DiadaSemana" class="text-danger"></span>
+        </div>*@
+
             <div class="form-group">
                 <label asp-for="DiadaSemana" class="control-label"></label>
-                <input asp-for="DiadaSemana" class="form-control" />
+                <label for="DiadaSemana">Dia da Semana</label>
+                <select asp-for="DiadaSemana" class="form-control">
+
+                    <option selected>Escolher...</option>
+                    <option>Domingo</option>
+                    <option>Segunda Feira</option>
+                    <option>Terça Feira</option>
+                    <option>Quarta Feira</option>
+                    <option>Quinta Feira</option>
+                    <option>Sexta Feira</option>
+                    <option>Sábado</option>
+                </select>
                 <span asp-validation-for="DiadaSemana" class="text-danger"></span>
             </div>
+
+
             <div class="form-group">
                 <label asp-for="HoraInicio" class="control-label"></label>
-                <input asp-for="HoraInicio" class="form-control" />
+                <input asp-for="HoraInicio"  class="form-control" onkeypress="$(this).mask('00h 00m')">
+                @*<input asp-for="HoraInicio" class="form-control" />*@
                 <span asp-validation-for="HoraInicio" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="HoraFim" class="control-label"></label>
-                <input asp-for="HoraFim" class="form-control" />
+                <input asp-for="HoraFim" class="form-control" onkeypress="$(this).mask('00h 00m')">
                 <span asp-validation-for="HoraFim" class="text-danger"></span>
             </div>
+           
             <div class="form-group">
                 <label asp-for="TempodeDescanso" class="control-label"></label>
                 <input asp-for="TempodeDescanso" class="form-control" />
                 <span asp-validation-for="TempodeDescanso" class="text-danger"></span>
             </div>
+           
             <div class="form-group">
                 <label asp-for="CargaHoraria" class="control-label"></label>
-                <input asp-for="CargaHoraria" class="form-control" />
+                <input asp-for="CargaHoraria" class="form-control" onkeypress="$(this).mask('00h 00m')"readonly>
                 <span asp-validation-for="CargaHoraria" class="text-danger"></span>
             </div>
+
+
             <div class="form-group">
                 <label asp-for="CargaHorariaSEmanal" class="control-label"></label>
-                <input asp-for="CargaHorariaSEmanal" class="form-control" />
-                <span asp-validation-for="CargaHorariaSEmanal" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="id" class="control-label"></label>
-                <input asp-for="id" class="form-control" />
-                <span asp-validation-for="id" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
-</div>
+                <input asp-for="CargaHorariaSEmanal" class="form-control"onkeypress="$(this).mask('00h 00m')"readonly>
+                    <span asp-validation-for="CargaHorariaSEmanal" class="text-danger"></span>
+                    </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
 
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+                    <div class="form-group">
+                        <label asp-for="Funcionario" class="control-label"></label>
+                        <select asp-for="FuncionarioID" class="form-control" asp-items="ViewBag.FuncionarioID"></select>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Create" class="btn btn-primary" />
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div>
+            <a asp-action="Index">Back to List</a>
+        </div>
+
+        @section Scripts {
+            @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+        }
+
+
+
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
+
+
+
+        <script type="text/javascript">
+
+            $(".btn").on("click", function () {
+                alert("clicou")
+
+                var horaInicio = parseInt($('#HoraInicio').val());
+                alert("hora inicial = " + horaInicio)
+                var horaFim = parseInt($('#HoraFim').val());
+                alert("horaFim = " + horaFim)
+                var tempoDescanso = parseInt($('#TempodeDescanso').val());
+                alert("tempoDescanso = " + tempoDescanso);
+
+                var cargaHoraria = horaFim - horaInicio - tempoDescanso;
+                alert("cargaHoraria " + cargaHoraria);
+
+                $('#CargaHoraria').val(cargaHoraria);
+
+
+                if (parseInt(cargaHoraria) > 10) {
+                    alert("Passou de 10")
+                }
+
+
+            });
+
+        </script>
+

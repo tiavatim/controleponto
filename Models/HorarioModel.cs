@@ -42,10 +42,10 @@ namespace ControlePonto.Models
         public string CargaHorariaSEmanal { get; set; }
 
 
-        [Display(Name = "id")]
-        [ForeignKey("id")]
+        [Display(Name = "FuncionarioID")]
+        [ForeignKey("FuncionarioID")]
         [Column(Order = 1)]
-        public int? id { get; set; }
+        public int FuncionarioID { get; set; }
 
         public virtual Funcionario Funcionario { get; set; }
 }

@@ -59,7 +59,7 @@ namespace ControlePonto.Models
         [Display(Name = "CEP")]
        
 
-      //  [RegularExpression(@"^\d{5}-\d{3}$",
+        //[RegularExpression(@"^\d{5}-\d{3}$",
         // ErrorMessage = "CEP Inválido")]
         public string CEP { get; set; }
 
@@ -85,33 +85,7 @@ namespace ControlePonto.Models
         [Display(Name = "Salario Proposto")]
         public string SalarioProposto { get; set; }
 
-        [Column("DiadaSemana")]
-        [Display(Name = "Dia da Semana")]
-        public string DiadaSemana { get; set; }
-
-        [Column("HoraInicio")]
-        [Display(Name = "Hora Inicio")]
-        public string HoraInicio { get; set; }
-
-
-        [Column("HoraFim")]
-        [Display(Name = "Hora Fim")]
-        public string HoraFim { get; set; }
-
-        [Column("TempodeDescanso")]
-        [Display(Name = "Tempo de Descanso")]
-        public int? TempodeDescanso { get; set; }
-
-
-        [Column("CargaHoraria")]
-        [Display(Name = "Carga Horária (h)")]
-        public string CargaHoraria { get; set; }
-
-        [Column("CargaHorariaSEmanal")]
-        [Display(Name = "Carga Horária Semanal")]
-        public string CargaHorariaSEmanal { get; set; }
-
-
+      
 
 
     
